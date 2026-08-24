@@ -1,0 +1,240 @@
+/* Dual-Layer Hero Portrait & Interactive Inspection Lens */
+
+.hero-viewport-container {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-image-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 58vw;
+  max-width: 920px;
+  height: 100vh;
+  pointer-events: auto;
+}
+
+.hero-image-inner {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  pointer-events: auto;
+}
+
+/* Layer 1: Base Grayscale / Halftone / Blurred Image */
+.hero-image-base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: grayscale(100%) contrast(var(--bg-contrast, 1.25)) brightness(var(--bg-brightness, 1)) blur(0.6px);
+  opacity: 0.88;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Halftone Pattern Mask for the Base Image */
+.hero-halftone-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.45) 0.85px, transparent 0.85px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  opacity: 0.45;
+}
+
+/* Vector Checkerboard Squares Background Overlay */
+.hero-checkerboard-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(45deg, #e4e4e4 25%, transparent 25%, transparent 75%, #e4e4e4 75%),
+    linear-gradient(45deg, #e4e4e4 25%, #ffffff 25%, #ffffff 75%, #e4e4e4 75%);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+
+/* Layer 2: Full Color / Ultra Sharp Image Clipped to Lens */
+.hero-image-color {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: contrast(106%) brightness(calc(var(--bg-brightness, 1) * 1.02)) saturate(1.1);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: clip-path;
+  transition: filter 0.2s ease;
+}
+
+/* Draggable Blue Selection Box */
+.inspection-lens-box {
+  position: absolute;
+  border: 2px solid var(--accent-blue);
+  background: rgba(37, 99, 235, 0.04);
+  cursor: grab;
+  pointer-events: auto;
+  z-index: 10;
+  touch-action: none;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset, 0 8px 30px rgba(0, 0, 0, 0.15);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.inspection-lens-box:active,
+.inspection-lens-box.is-dragging {
+  cursor: grabbing;
+  border-color: var(--accent-blue-bright);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6) inset, 0 14px 40px rgba(37, 99, 235, 0.25);
+  transform: rotate(-0.3deg) scale(1.005);
+}
+
+/* 4 Corner Handles */
+.lens-corner-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-blue);
+  border: 1.5px solid #ffffff;
+  pointer-events: auto;
+  z-index: 12;
+  box-sizing: border-box;
+}
+
+.lens-corner-handle.top-left {
+  top: -6px;
+  left: -6px;
+  cursor: nwse-resize;
+}
+
+.lens-corner-handle.top-right {
+  top: -6px;
+  right: -6px;
+  cursor: nesw-resize;
+}
+
+.lens-corner-handle.bottom-left {
+  bottom: -6px;
+  left: -6px;
+  cursor: nesw-resize;
+}
+
+.lens-corner-handle.bottom-right {
+  bottom: -6px;
+  right: -6px;
+  cursor: nwse-resize;
+}
+
+/* Edge handles */
+.lens-edge-handle {
+  position: absolute;
+  background: transparent;
+  pointer-events: auto;
+  z-index: 11;
+}
+.lens-edge-handle.edge-n {
+  top: -4px;
+  left: 6px;
+  right: 6px;
+  height: 8px;
+  cursor: ns-resize;
+}
+.lens-edge-handle.edge-s {
+  bottom: -4px;
+  left: 6px;
+  right: 6px;
+  height: 8px;
+  cursor: ns-resize;
+}
+.lens-edge-handle.edge-e {
+  right: -4px;
+  top: 6px;
+  bottom: 6px;
+  width: 8px;
+  cursor: ew-resize;
+}
+.lens-edge-handle.edge-w {
+  left: -4px;
+  top: 6px;
+  bottom: 6px;
+  width: 8px;
+  cursor: ew-resize;
+}
+
+/* Pixel Cursor / Pointer Element from Reference Image 1 */
+.lens-pixel-cursor {
+  position: absolute;
+  right: -18px;
+  top: 40%;
+  pointer-events: none;
+  z-index: 15;
+  filter: drop-shadow(2px 3px 0px rgba(0, 0, 0, 0.85));
+  animation: pulseSubtle 3s infinite ease-in-out;
+}
+
+/* Yellow Crosshair & Focus Sun Element from Reference Image 2 */
+.lens-yellow-crosshair {
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  pointer-events: none;
+  z-index: 14;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent-yellow);
+}
+
+.yellow-sun-icon {
+  width: 20px;
+  height: 20px;
+  animation: spinSlow 16s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.lens-status-tag {
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  background: var(--accent-blue);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  pointer-events: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lens-status-tag .dot {
+  width: 5px;
+  height: 5px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+}

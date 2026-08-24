@@ -1,0 +1,358 @@
+/* Desktop Workspace & Editorial Collage Layout */
+
+.desktop-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+/* Editorial Canvas Typography & Graphic Grid */
+.editorial-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 44px 44px 44px;
+}
+
+/* Top Magazine Header Line */
+.editorial-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1.5px solid rgba(18, 18, 20, 0.85);
+  padding-bottom: 12px;
+}
+
+.editorial-edition {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.editorial-brand {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--text-secondary);
+}
+
+.editorial-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(18, 18, 20, 0.08);
+  padding: 4px 10px;
+  border: 1px solid rgba(18, 18, 20, 0.15);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.editorial-status-pill .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulseSubtle 2s infinite ease-in-out;
+}
+
+/* Giant Condensed Hero Title */
+.editorial-headline-container {
+  position: absolute;
+  top: 68px;
+  left: 44px;
+  z-index: 2;
+}
+
+.editorial-main-headline {
+  font-family: var(--font-display);
+  font-size: clamp(84px, 12.5vw, 175px);
+  line-height: 0.86;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+}
+
+.editorial-subheadline {
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 1.6vw, 22px);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  border-top: 2px solid var(--text-main);
+  padding-top: 8px;
+  max-width: 480px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Floating Questions & Philosophical Notes (Reference Image 2) */
+.editorial-question-hero {
+  position: absolute;
+  top: 48px;
+  right: 28%;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 92px);
+  color: rgba(18, 18, 20, 0.9);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.editorial-question-hero .blue-anchor-node {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 0 3px #ffffff, 0 3px 8px rgba(37, 99, 235, 0.4);
+}
+
+.editorial-floating-question {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: clamp(13px, 1.1vw, 16px);
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(4px);
+  padding: 4px 10px;
+  border-left: 2px solid var(--accent-blue);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.editorial-floating-question:hover {
+  transform: translateY(-2px);
+  color: var(--accent-blue-dark);
+}
+
+.editorial-italic-quote {
+  position: absolute;
+  bottom: 64px;
+  right: 22%;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(22px, 2.4vw, 36px);
+  color: var(--text-main);
+  z-index: 4;
+  letter-spacing: -0.02em;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
+}
+
+/* Editorial Callouts (Reference Image 1) */
+.editorial-side-callout {
+  position: absolute;
+  bottom: 80px;
+  left: 44px;
+  max-width: 280px;
+  z-index: 3;
+}
+
+.callout-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  color: var(--text-main);
+  line-height: 1.05;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.callout-body {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+/* Barcode Widget (Reference Image 1) */
+.editorial-barcode-card {
+  position: absolute;
+  bottom: 40px;
+  left: 44px;
+  z-index: 4;
+  background: #ffffff;
+  padding: 8px 14px 6px 14px;
+  border: 1px solid rgba(18, 18, 20, 0.2);
+  box-shadow: 4px 4px 0px rgba(18, 18, 20, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.barcode-svg {
+  height: 28px;
+  width: 140px;
+}
+
+.barcode-digits {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--text-main);
+}
+
+/* Tactile Desktop Folders */
+.desktop-folders-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.desktop-folder-item {
+  position: absolute;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease;
+  user-select: none;
+}
+
+.desktop-folder-item:hover {
+  transform: translateY(-4px) scale(1.04);
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.desktop-folder-item.is-selected {
+  background: rgba(37, 99, 235, 0.16);
+  box-shadow: 0 0 0 1.5px var(--accent-blue);
+}
+
+.desktop-folder-item:active {
+  transform: scale(0.96);
+}
+
+/* Blue Folder Graphic - Ref Image 2 */
+.folder-icon-wrapper {
+  position: relative;
+  width: 68px;
+  height: 52px;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.16));
+  transition: transform 0.2s ease;
+}
+
+.desktop-folder-item:hover .folder-icon-wrapper {
+  transform: rotate(-2deg);
+}
+
+.folder-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.folder-back-tab {
+  fill: #4b92db;
+}
+
+.folder-front {
+  fill: url(#folderGrad);
+  stroke: #6bb3ff;
+  stroke-width: 0.8;
+}
+
+.folder-badge-counter {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--accent-blue-dark);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 8px;
+  border: 1.5px solid #ffffff;
+}
+
+.folder-label-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 110px;
+}
+
+.folder-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2px 6px;
+  border: 1px solid rgba(18, 18, 20, 0.2);
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.desktop-folder-item.is-selected .folder-title {
+  background: var(--accent-blue);
+  color: #ffffff;
+  border-color: var(--accent-blue-dark);
+}
+
+.folder-sublabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* Small Message Bubble icon from Ref Image 2 */
+.desktop-bubble-icon {
+  position: absolute;
+  top: 190px;
+  right: 14%;
+  background: #ffffff;
+  border: 1.5px solid var(--text-main);
+  border-radius: 14px;
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--accent-blue);
+  box-shadow: 3px 3px 0px rgba(18, 18, 20, 0.8);
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 5;
+}
+
+.desktop-bubble-icon:hover {
+  transform: scale(1.1) rotate(4deg);
+  background: var(--accent-yellow);
+  color: var(--text-main);
+}
