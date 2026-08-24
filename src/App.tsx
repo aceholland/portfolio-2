@@ -17,59 +17,57 @@ import './styles/responsive.css';
 
 // Initial Folders Layout (Safe placements to prevent overlap with left titles & right portrait face)
 const DESKTOP_FOLDERS: DesktopFolderItem[] = [
-  // Column 1 (x = 12%): System Modules
+  // Column 1 (x = 5%): System Folders
   {
     id: 'resume',
     label: 'RESUME',
     sublabel: 'Verified CV Dossier',
-    xPercent: 12,
-    yPercent: 44,
+    xPercent: 5,
+    yPercent: 48,
     badge: 'CV'
   },
   {
     id: 'skills',
     label: 'SKILLS',
     sublabel: 'Tools & Ensembles',
-    xPercent: 12,
-    yPercent: 58,
+    xPercent: 5,
+    yPercent: 60,
     badge: '18'
   },
-
-  // Column 2 (x = 24%): About Manifesto & Astronomy Project
   {
     id: 'about',
     label: 'ABOUT',
     sublabel: 'Editorial Manifesto',
-    xPercent: 24,
-    yPercent: 44,
+    xPercent: 5,
+    yPercent: 72,
     badge: 'Q&A'
   },
   {
     id: 'contact',
     label: 'CONTACT',
     sublabel: 'Direct Channels',
-    xPercent: 24,
-    yPercent: 58,
+    xPercent: 5,
+    yPercent: 84,
     badge: 'LIVE'
   },
+
+  // Column 2 (x = 15%): Astronomy, Crop/Housing, Web Apps, Heart ML Projects
   {
     id: 'projects',
     projectId: 'astronomy-ml',
     label: 'ASTRONOMY ML',
     sublabel: 'Astro Predictions',
-    xPercent: 24,
-    yPercent: 72,
+    xPercent: 15,
+    yPercent: 48,
     badge: '03'
   },
-
-  // Column 3 (x = 36%): Core Projects
   {
     id: 'projects',
     projectId: 'agricultural-housing-ml',
     label: 'CROP & HOUSING',
     sublabel: 'Yield Regression',
-    xPercent: 36,
-    yPercent: 30,
+    xPercent: 15,
+    yPercent: 60,
     badge: '02'
   },
   {
@@ -77,8 +75,8 @@ const DESKTOP_FOLDERS: DesktopFolderItem[] = [
     projectId: 'web-apps',
     label: 'WEB APPS',
     sublabel: 'Frontend Grid',
-    xPercent: 36,
-    yPercent: 44,
+    xPercent: 15,
+    yPercent: 72,
     badge: '08'
   },
   {
@@ -86,28 +84,28 @@ const DESKTOP_FOLDERS: DesktopFolderItem[] = [
     projectId: 'rppg-heart-rate',
     label: 'HEART CV (RPPG)',
     sublabel: 'Telemetry Scan',
-    xPercent: 36,
-    yPercent: 58,
+    xPercent: 15,
+    yPercent: 84,
     badge: 'LIVE'
   },
+
+  // Column 3 (x = 25%): Surrogate ML, Jarvis Voice, WhatsApp Bot
   {
     id: 'projects',
     projectId: 'physics-surrogate',
     label: 'SURROGATE ML',
     sublabel: 'Reactor Ensemble',
-    xPercent: 36,
-    yPercent: 72,
+    xPercent: 25,
+    yPercent: 48,
     badge: '120x'
   },
-
-  // Column 4 (x = 48%): Automation Utilities
   {
     id: 'projects',
     projectId: 'jarvis-voice',
     label: 'JARVIS VOICE',
     sublabel: 'Local AI Agent',
-    xPercent: 48,
-    yPercent: 44,
+    xPercent: 25,
+    yPercent: 60,
     badge: 'AI'
   },
   {
@@ -115,8 +113,8 @@ const DESKTOP_FOLDERS: DesktopFolderItem[] = [
     projectId: 'chatbot-whatsapp',
     label: 'WHATSAPP BOT',
     sublabel: 'NLP Automation',
-    xPercent: 48,
-    yPercent: 58,
+    xPercent: 25,
+    yPercent: 72,
     badge: 'NLP'
   }
 ];
