@@ -225,11 +225,9 @@
 
 .desktop-folders-container {
   position: absolute;
-  bottom: 4vh;
+  top: 310px; /* Safely below the subheadline */
   left: 44px;
   width: 450px;
-  height: 52vh;
-  min-height: 420px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
