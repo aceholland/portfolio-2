@@ -41,25 +41,27 @@
   
   .hero-image-wrapper {
     width: 100vw;
-    height: 65vh;
-    top: 60px;
+    height: 48vh;
+    top: 175px;
     right: 0;
-    opacity: 0.85;
+    opacity: 0.9;
   }
   
   .editorial-headline-container {
-    top: 52px;
+    top: 48px;
     left: 18px;
+    right: 18px;
   }
   
   .editorial-main-headline {
-    font-size: 56px;
+    font-size: clamp(36px, 9vw, 48px);
+    margin-bottom: 4px;
   }
   
   .editorial-subheadline {
-    font-size: 11px;
+    font-size: 10px;
     padding-top: 4px;
-    max-width: 320px;
+    max-width: 100%;
   }
   
   .editorial-question-hero {
@@ -83,11 +85,11 @@
   }
   
   .brightness-control-widget {
-    top: auto;
-    bottom: 34px;
-    right: 12px;
-    width: 130px;
-    padding: 6px 10px;
+    top: 135px;
+    right: 18px;
+    bottom: auto;
+    width: 120px;
+    padding: 4px 8px;
   }
   
   /* Mobile Folders Dock */
