@@ -143,16 +143,59 @@
     top: 40px !important;
     left: 10px !important;
     right: 10px !important;
-    bottom: 80px !important;
+    bottom: 120px !important; /* Safely clear mobile folder dock */
     width: auto !important;
     height: auto !important;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
   }
   
   .window-content {
-    padding: 16px;
+    padding: 12px;
   }
   
+  /* Horizontal Scrolling Project Tabs on Mobile */
+  .projects-tabs-bar {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding-bottom: 6px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  .projects-tabs-bar::-webkit-scrollbar {
+    display: none; /* Webkit */
+  }
+  .project-tab-btn {
+    flex-shrink: 0 !important;
+  }
+  .project-main-title {
+    font-size: clamp(20px, 5.5vw, 26px) !important;
+  }
+  
+  /* Icon-Only Buttons for Action Bar on Phone Screens */
+  @media (max-width: 500px) {
+    .contact-action-btn span {
+      display: none;
+    }
+    .contact-action-btn {
+      padding: 6px 8px !important;
+    }
+    
+    /* Clean vertical list for CV metadata on phones */
+    .resume-meta-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start !important;
+    }
+    .resume-meta-bar span:nth-child(2),
+    .resume-meta-bar span:nth-child(4) {
+      display: none; /* Hide bullets */
+    }
+    .resume-paper-document {
+      padding: 12px !important;
+    }
+  }
+
   .project-metrics-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -168,5 +211,13 @@
   .desktop-status-bar {
     font-size: 9px;
     padding: 0 8px;
+  }
+  
+  /* Hide scrollbar on folders dock */
+  .desktop-folders-container {
+    scrollbar-width: none;
+  }
+  .desktop-folders-container::-webkit-scrollbar {
+    display: none;
   }
 }
