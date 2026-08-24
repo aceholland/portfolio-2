@@ -215,12 +215,6 @@ export const HeroLens: React.FC<HeroLensProps> = ({
   return (
     <div className="hero-viewport-container">
       <div className="hero-image-wrapper">
-        {/* Outer Checkerboard Squares Background */}
-        <div className="hero-checkerboard-overlay" style={{ inset: 0, position: 'absolute' }} />
-
-        {/* Outer Halftone Dot Overlay (extends dots across the entire full-screen background) */}
-        <div className="hero-halftone-overlay" style={{ inset: 0, position: 'absolute' }} />
-
         <div className="hero-image-inner" ref={containerRef}>
           {/* Layer 1: Base Grayscale / Halftone / Blurred Image */}
           <img
@@ -229,10 +223,7 @@ export const HeroLens: React.FC<HeroLensProps> = ({
             className="hero-image-base"
           />
 
-          {/* Inner Checkerboard Squares (covers the grayscale portrait area) */}
-          <div className="hero-checkerboard-overlay" />
-
-          {/* Inner Halftone Dot Overlay (covers the grayscale portrait area) */}
+          {/* Halftone Dot Overlay */}
           <div className="hero-halftone-overlay" />
 
           {/* Layer 2: Full Color / Sharp Image Clipped to Lens */}
