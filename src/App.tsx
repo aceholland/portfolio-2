@@ -268,7 +268,7 @@ export const App: React.FC = () => {
       <DesktopDecorations onOpenWindow={handleOpenWindow} />
 
       {/* Tactile Blue Desktop Folders (Ref Image 2) */}
-      <div className="desktop-folders-layer">
+      <div className="desktop-folders-container">
         {DESKTOP_FOLDERS.map((folder) => {
           const key = folder.projectId ? `${folder.id}-${folder.projectId}` : folder.id;
           return (

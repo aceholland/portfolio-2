@@ -30,10 +30,6 @@ export const DesktopFolder: React.FC<DesktopFolderProps> = ({
   return (
     <div
       className={`desktop-folder-item ${isSelected ? 'is-selected' : ''}`}
-      style={{
-        top: `${folder.yPercent}%`,
-        left: `${folder.xPercent}%`
-      }}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
       role="button"
